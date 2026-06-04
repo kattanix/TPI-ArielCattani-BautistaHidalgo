@@ -34,7 +34,18 @@ def cargar_paises(nombre_archivo, lista):
         print("El archivo al que intenta acceder no se encuentra!")
     return lista
 
-def agregar_pais(lista):
+def guardar_paises(nombre_archivo, lista):
+    campos = ["nombre", "poblacion", "superficie", "continente"]
+    
+    with open(nombre_archivo, "w", newline="", encoding="utf-8") as archivo:
+        escritor = csv.DictWriter(archivo, fieldnames=campos)
+        
+        escritor.writeheader()
+        
+        for pais in lista:
+            escritor.writerow(pais)
+
+def agregar_pais(nombre_archivo, lista):
         try:
             nombre = input("Ingrese el nombre del país a agregar: ").capitalize()
             
@@ -67,23 +78,60 @@ def agregar_pais(lista):
             pais = {"nombre": nombre, "poblacion": poblacion, "superficie": superficie, "continente": continente}
             lista.append(pais)
             
+            print("País añadido con éxito!")
+            guardar_paises(nombre_archivo, lista)
+            
         except DatoDuplicado as e:
             print(e)
         except DatoInvalido as e:
             print(e)
         except ValueError:
-            print("Lo ingresado debe ser un numero positivo!")
+            print("Lo ingresado debe ser un numero!")
 
-def guardar_paises(nombre_archivo, lista):
-    campos = ["nombre", "poblacion", "superficie", "continente"]
-    
-    with open(nombre_archivo, "w", newline="", encoding="utf-8") as archivo:
-        escritor = csv.DictWriter(archivo, fieldnames=campos)
+def act_datos(nombre_archivo, lista):
+    try:
+        nombre = input("Ingrese el nombre del pais que desea cambiar los datos: ").capitalize().strip()
+        encontrado = False
         
-        escritor.writeheader()
+        if nombre == "":
+            raise DatoInvalido("El nombre no puede estar vacío!")
         
-        for pais in lista:
-            escritor.writerow(pais)
+        while True:
+            try:
+                for pais in lista:
+                    if nombre == pais["nombre"]:
+                        encontrado = True
+                        print(f"Poblacion actual de {nombre}: {pais["poblacion"]}")
+                        poblacion_act = int(input(f"Cual será la nueva población de {nombre}?: "))
+                        
+                        if poblacion_act <= 0:
+                            raise DatoInvalido("La nueva población no puede ser 0 o menor!")
+                            
+                        print(f"Superficie actual de {nombre}: {pais["superficie"]}")
+                        superficie_act = int(input(f"Cual es la nueva superficie de {nombre}?: "))
+                        
+                        if superficie_act <= 0:
+                            raise DatoInvalido("La superficie no puede ser 0 o menor!")
+                            
+                        pais["poblacion"] = poblacion_act
+                        pais["superficie"] = superficie_act
+                        
+                        print("Datos cambiados con éxito!")
+                        guardar_paises(nombre_archivo, lista)
+                        return
+                        
+                if not encontrado:
+                    print("El país ingresado no se encuentra en la lista de países")
+                    break
+                    
+            except DatoInvalido as e:
+                print(e)
+            except ValueError:
+                print("El dato ingrsado deben ser solo numeros")
+                
+    except DatoInvalido as e:
+        print(e)
+
 
 def buscar_pais(lista):
     consulta = input("Inserte el país que quiera buscar: ").capitalize()
@@ -98,4 +146,7 @@ def buscar_pais(lista):
             encontrado = True
             
     if not encontrado:
-        print("El país ingresado no se encuentra ")
+        print("El país ingresado no se encuentra en la lista de países")
+
+def filtrar_paises(lista):
+    pass
