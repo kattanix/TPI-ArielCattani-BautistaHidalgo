@@ -1,0 +1,61 @@
+nombre,poblacion,superficie,continente
+Argentina,45376763,2780400,America
+Brasil,213993437,8515767,America
+Chile,19603733,756102,America
+Uruguay,3426260,176215,America
+Paraguay,6109644,406752,America
+Bolivia,12388571,1098581,America
+Peru,33715471,1285216,America
+Colombia,52321532,1141748,America
+Ecuador,18190484,283561,America
+Venezuela,28838499,916445,America
+Mexico,129150971,1964375,America
+Estados Unidos,331893745,9833517,America
+Canada,40100000,9984670,America
+Guatemala,18092026,108889,America
+Honduras,10593798,112492,America
+El Salvador,6331540,21041,America
+Costa Rica,5213362,51100,America
+Panama,4468087,75417,America
+Cuba,11194449,109884,America
+Republica Dominicana,11332972,48671,America
+España,48592909,505990,Europa
+Francia,68042591,551695,Europa
+Alemania,83149300,357022,Europa
+Italia,58983122,301340,Europa
+Portugal,10467366,92212,Europa
+Reino Unido,68265209,243610,Europa
+Irlanda,5300000,70273,Europa
+Belgica,11780000,30528,Europa
+Paises Bajos,17900000,41543,Europa
+Suiza,8900000,41285,Europa
+Austria,9100000,83879,Europa
+Polonia,37800000,312696,Europa
+Ucrania,36700000,603628,Europa
+Rusia,146150789,17098242,Europa
+Grecia,10400000,131957,Europa
+China,1412000000,9596961,Asia
+India,1428000000,3287263,Asia
+Japon,125800000,377975,Asia
+Corea del Sur,51740000,100210,Asia
+Corea del Norte,26100000,120540,Asia
+Indonesia,281000000,1904569,Asia
+Pakistan,241500000,881913,Asia
+Bangladesh,173000000,148460,Asia
+Vietnam,101000000,331212,Asia
+Tailandia,71800000,513120,Asia
+Filipinas,118000000,300000,Asia
+Arabia Saudita,36900000,2149690,Asia
+Turquia,85600000,783562,Asia
+Israel,9800000,22072,Asia
+Emiratos Arabes Unidos,10500000,83600,Asia
+Egipto,111000000,1002450,Africa
+Argelia,47000000,2381741,Africa
+Marruecos,37800000,446550,Africa
+Nigeria,229000000,923768,Africa
+Sudafrica,63000000,1221037,Africa
+Kenia,56000000,580367,Africa
+Etiopia,132000000,1104300,Africa
+Australia,26700000,7692024,Oceania
+Nueva Zelanda,5300000,268021,Oceania
+Papua Nueva Guinea,10300000,462840,Oceania
