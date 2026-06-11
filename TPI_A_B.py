@@ -3,8 +3,13 @@ import csv
 
 paises = []
 
+limpiar_pantalla()
+
+cargar_paises("paises.csv", paises)
+
 while True:
-    cargar_paises("paises.csv", paises)
+
+
     menu()
     opcion = input("Ingrese la opcion a elegir: ")
     
@@ -16,13 +21,20 @@ while True:
         case "3":
             buscar_pais(paises)
         case "4":
-            pass
+            filtrar_paises(paises)
         case "5":
-            pass
+            ordenar_paises(paises)
         case "6":
-            pass
+            mostrar_estadisticas(paises)
         case "7":
+            limpiar_pantalla()
             print("Cerrando programa...")
             break
+        
         case "-":
             print(paises)
+            
+        case _ :
+            limpiar_pantalla()
+            print("! Opcion no valida - Seleccione las opciones que se encuentran en pantalla")
+            
