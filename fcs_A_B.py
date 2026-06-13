@@ -28,7 +28,7 @@ def menu():
 
 
 def cargar_paises(nombre_archivo, lista):
-    lista.clear()
+    
     try:
         with open(nombre_archivo, "r", encoding="utf-8") as archivo:
             lector = csv.DictReader(archivo)
@@ -140,32 +140,45 @@ def agregar_pais(nombre_archivo, lista):
     except ValueError:
             print("! Lo ingresado debe ser un numero")
 
+
+
+
+
+
+
+
 def act_datos(nombre_archivo, lista):
+    
+    limpiar_pantalla()
+    
     try:
         nombre = input("Ingrese el nombre del pais que desea cambiar los datos: ").capitalize().strip()
         encontrado = False
         
         if nombre == "":
+            limpiar_pantalla()
             raise DatoInvalido("! El nombre no puede estar vacío")
         
         while True:
+            print(f"Actualizando datos de {nombre}...\n")
+            
             try:
                 for pais in lista:
                     if nombre == pais["nombre"]:
                         encontrado = True
                         
-                        print(f"Poblacion actual de {nombre}: {pais['poblacion']}")
+                        print(f"- Poblacion actual de {nombre}: {pais['poblacion']}")
                         
                         poblacion_act = int(input(f"? Cual será la nueva población de {nombre}: "))
                         
                         if poblacion_act <= 0:
-                            raise DatoInvalido("La nueva población no puede ser 0 o menor!")
+                            raise DatoInvalido("! La nueva población no puede ser 0 o menor")
                             
-                        print(f"Superficie actual de {nombre}: {pais['superficie']}")
-                        superficie_act = int(input(f"Cual es la nueva superficie de {nombre}?: "))
+                        print(f"- Superficie actual de {nombre}: {pais['superficie']}")
+                        superficie_act = int(input(f"? Cual es la nueva superficie de {nombre}: "))
                         
                         if superficie_act <= 0:
-                            raise DatoInvalido("La superficie no puede ser 0 o menor!")
+                            raise DatoInvalido("! La superficie no puede ser 0 o menor")
                             
                         pais["poblacion"] = poblacion_act
                         pais["superficie"] = superficie_act
@@ -181,22 +194,28 @@ def act_datos(nombre_archivo, lista):
             except DatoInvalido as e:
                 print(e)
             except ValueError:
-                print("El dato ingrsado deben ser solo numeros")
+                limpiar_pantalla()
+                print(f"Actualizando datos de {nombre}...")
+                print("! El dato ingresado deben ser solo numeros")
                 
     except DatoInvalido as e:
         print(e)
 
 
 def buscar_pais(lista):
-    consulta = input("Inserte el país que quiera buscar: ").capitalize()
+    limpiar_pantalla()
+    
+    print("\n-: Busqueda de países :-\n")
+    consulta = input("Inserte el país que quiera buscar: ")
     encontrado = False
     
+    
     for pais in lista:
-        if consulta.lower() == pais["nombre"].lower():
-            print(f"País: {pais['nombre']}")
-            print(f"Población: {pais['poblacion']}")
-            print(f"Superficie: {pais['superficie']}")
-            print(f"Continente: {pais['continente']}")
+        if consulta.lower().strip() == pais["nombre"].lower().strip():
+            print(f"- País: {pais['nombre']}")
+            print(f"- Población: {pais['poblacion']}")
+            print(f"- Superficie: {pais['superficie']}")
+            print(f"- Continente: {pais['continente']}")
             encontrado = True
             
     if not encontrado:
@@ -230,7 +249,7 @@ def filtrar_paises(lista):
                     
                     limpiar_pantalla()
                     
-                    print(continente.capitalize())
+                    print(f"- Países de {continente.capitalize()}")
                     print()
                     for pais in lista:
                         

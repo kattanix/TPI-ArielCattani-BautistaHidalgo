@@ -11,7 +11,9 @@ while True:
 
 
     menu()
-    opcion = input("Ingrese la opcion a elegir: ")
+    
+    opcion = input("\n» Opción: ")
+    
     
     match opcion:
         case "1":

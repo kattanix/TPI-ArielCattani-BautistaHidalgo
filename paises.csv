@@ -1,15 +1,15 @@
 nombre,poblacion,superficie,continente
-Argentina,45376763,2780400,America
+Argentina,46234830,3761274,America
 Brasil,213993437,8515767,America
 Chile,19603733,756102,America
 Uruguay,3426260,176215,America
 Paraguay,6109644,406752,America
-Bolivia,12388571,1098581,America
+Bolivia,1222456,12341,America
 Peru,33715471,1285216,America
 Colombia,52321532,1141748,America
 Ecuador,18190484,283561,America
 Venezuela,28838499,916445,America
-Mexico,129150971,1964375,America
+Mexico,132997658,1959248,America
 Estados Unidos,331893745,9833517,America
 Canada,40100000,9984670,America
 Guatemala,18092026,108889,America
@@ -59,4 +59,4 @@ Etiopia,132000000,1104300,Africa
 Australia,26700000,7692024,Oceania
 Nueva Zelanda,5300000,268021,Oceania
 Papua Nueva Guinea,10300000,462840,Oceania
-Juan,213,21312,America
+Andorra,89000,468,Europa
