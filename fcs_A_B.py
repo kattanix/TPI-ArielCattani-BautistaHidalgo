@@ -7,8 +7,6 @@ class DatoDuplicado(Exception):
 
 import os
 
-
-
 def limpiar_pantalla():
     if os.name == 'nt':
         os.system('cls')
@@ -73,6 +71,9 @@ def agregar_pais(nombre_archivo, lista):
     try:
         nombre = input("Ingrese el nombre del país a agregar: ").capitalize()
         
+        if not nombre.isalpha():
+            raise AttributeError
+        
         if nombre.strip() == "":
             raise DatoInvalido("El nombre no puede estar vacío")
             
@@ -127,6 +128,8 @@ def agregar_pais(nombre_archivo, lista):
             print(e)
     except DatoInvalido as e:
             print(e)
+    except AttributeError:
+        print("! El nombre del pais no puede contener numeros")
     except ValueError:
             print("! Lo ingresado debe ser un numero")
 
@@ -194,9 +197,8 @@ def buscar_pais(lista):
     consulta = input("Inserte el país que quiera buscar: ")
     encontrado = False
     
-    
     for pais in lista:
-        if consulta.lower().strip() == pais["nombre"].lower().strip():
+        if consulta.capitalize().strip() == pais["nombre"]:
             print(f"- País: {pais['nombre']}")
             print(f"- Población: {pais['poblacion']}")
             print(f"- Superficie: {pais['superficie']}")
@@ -242,13 +244,11 @@ def filtrar_paises(lista):
                             print(f"- Superficie: {pais['superficie']}")
                             print(f"- Continente: {pais['continente']}")
                             
-                            
                             encontrados = True
                             
                     if not encontrados:
                         limpiar_pantalla()
                         print("! No se encontraron países.")
-                
                 
                 case "2":
                     limpiar_pantalla()
@@ -268,9 +268,7 @@ def filtrar_paises(lista):
                             limpiar_pantalla()
                             print("Error: Debe ingresar solo numeros enteros")
                     
-                    
                     limpiar_pantalla()
-                    
                     
                     while True:
                         try:
@@ -328,14 +326,12 @@ def filtrar_paises(lista):
                                 print("Error: No puede ser menor a 0")
                                 continue
                             break
-                        
+                            
                         except ValueError:
                             limpiar_pantalla()
                             print("Error: Debe ingresar solo numeros enteros")
                     
-                    
                     limpiar_pantalla()
-                    
                     
                     while True:
                         print("Filtrar por población\n")
@@ -348,13 +344,16 @@ def filtrar_paises(lista):
                                 limpiar_pantalla()
                                 print("! Error: No puede ser menor a 0")
                                 continue
+                            
+                            if minimo > maximo:
+                                print("! El mínimo no puede ser mayor al máximo")
+                                continue
                             break
                         
                         except ValueError:
                             limpiar_pantalla()
                             print("! Error: Debe ingresar solo numeros enteros")
                             
-                    
                     encontrado = False
                     
                     for pais in lista:
@@ -390,7 +389,6 @@ def filtrar_paises(lista):
 def ordenar_paises(lista):
     limpiar_pantalla()
     
-    
     while True:
         print("""
     1. Nombre
@@ -419,8 +417,6 @@ def ordenar_paises(lista):
                 print("Seleccion no valida - Seleccione las opciones que estan en pantalla")
                 continue
             break
-        
-        
         
         reversa = sentido == "D"
         

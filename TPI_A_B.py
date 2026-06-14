@@ -8,12 +8,10 @@ limpiar_pantalla()
 cargar_paises("paises.csv", paises)
 
 while True:
-
-
+    
     menu()
     
     opcion = input("\n» Opción: ")
-    
     
     match opcion:
         case "1":
@@ -32,11 +30,7 @@ while True:
             limpiar_pantalla()
             print("Cerrando programa...")
             break
-        
-        case "-":
-            print(paises)
             
         case _ :
             limpiar_pantalla()
             print("! Opcion no valida - Seleccione las opciones que se encuentran en pantalla")
-            
