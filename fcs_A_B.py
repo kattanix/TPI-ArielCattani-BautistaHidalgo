@@ -209,6 +209,8 @@ def buscar_pais(lista):
         print("El país ingresado no se encuentra en la lista de países")
 
 
+
+
 def filtrar_paises(lista):
 
     limpiar_pantalla()
