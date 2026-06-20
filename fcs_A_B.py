@@ -251,7 +251,10 @@ def filtrar_paises(lista):
                     if not encontrados:
                         limpiar_pantalla()
                         print("! No se encontraron países.")
-                
+
+                    enter = input("\n- Presione ENTER para continuar")
+                    limpiar_pantalla()
+                    
                 case "2":
                     limpiar_pantalla()
                     while True:
@@ -283,7 +286,10 @@ def filtrar_paises(lista):
                                 continue
                             
                             if minimo > maximo:
+                                limpiar_pantalla()
                                 print("! El mínimo no puede ser mayor al máximo")
+                                print(f"- Rango minimo: {minimo}")  
+                                
                                 continue
                             
                             break
@@ -307,17 +313,18 @@ def filtrar_paises(lista):
                             
                                 
                                 encontrado = True
-                    print()
                     
                     if not encontrado:
                         limpiar_pantalla()
                         print("No se encontraron países con ese rango de población")
                      
+                    enter = input("\n- Presione ENTER para continuar")
+                    limpiar_pantalla()
                 case "3":
                     
                     limpiar_pantalla()
                     while True:
-                        print("-: Filtrar por población :-\n")
+                        print("-: Filtrar por superficie :-\n")
                         
                         try:
                             
@@ -370,15 +377,15 @@ def filtrar_paises(lista):
                             
                             encontrado = True
                     
-                    print()
-                            
+                    
                         
                     if not encontrado:
                         limpiar_pantalla()
                         print("ı: No se encontraron paises en ese rango de superficie.")
                                     
-                        
-                        
+                    enter = input("\n- Presione ENTER para continuar")
+                    limpiar_pantalla()    
+                                            
                 case "4":
                     limpiar_pantalla()
                     break
@@ -466,14 +473,25 @@ def ordenar_paises(lista):
 
 def mostrar_estadisticas(lista):
     try:
+        
         limpiar_pantalla()
+        
+        
+        
+        
         
         mayor = max(lista,
                     key=lambda pais: pais["poblacion"])
+        
+        
+        
+        
+        
                     
         menor = min(lista,
                     key=lambda pais: pais["poblacion"])
-                    
+        
+    
         promedio_poblacion = (
             sum(pais["poblacion"] for pais in lista)
             / len(lista)
