@@ -288,7 +288,6 @@ def filtrar_paises(lista):
                             if minimo > maximo:
                                 limpiar_pantalla()
                                 print("! El mínimo no puede ser mayor al máximo")
-                                print(f"- Rango minimo: {minimo}")  
                                 
                                 continue
                             
@@ -343,7 +342,7 @@ def filtrar_paises(lista):
                     limpiar_pantalla()
                     
                     while True:
-                        print("Filtrar por población\n")
+                        print("-: Filtrar por superficie :-\n")
                         
                         try:
                             print(f"- Rango minimo: {minimo}")  
@@ -355,6 +354,7 @@ def filtrar_paises(lista):
                                 continue
                             
                             if minimo > maximo:
+                                limpiar_pantalla()
                                 print("! El mínimo no puede ser mayor al máximo")
                                 continue
                             break
@@ -470,23 +470,17 @@ def ordenar_paises(lista):
             print(f"Superficie: {pais['superficie']}")
             print(f"Continente: {pais['continente']}")
 
-
+        enter = input("\n- Presione ENTER para continuar")
+        limpiar_pantalla()
+        
+        
 def mostrar_estadisticas(lista):
     try:
         
         limpiar_pantalla()
-        
-        
-        
-        
-        
+    
         mayor = max(lista,
                     key=lambda pais: pais["poblacion"])
-        
-        
-        
-        
-        
                     
         menor = min(lista,
                     key=lambda pais: pais["poblacion"])
